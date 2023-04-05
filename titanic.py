@@ -1,7 +1,5 @@
-from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
-from sklearn.tree import DecisionTreeClassifier
-from numpy import concatenate
-from pandas import read_csv, get_dummies, DataFrame, concat
+from sklearn.ensemble import RandomForestClassifier
+from pandas import read_csv, get_dummies, DataFrame
 
 
 def prever(dados_treino, dados_teste, colunas):

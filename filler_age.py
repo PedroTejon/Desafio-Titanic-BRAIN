@@ -6,11 +6,8 @@ def main():
     with open('test.csv', 'r') as f:
         dados_teste = [x for x in reader(f)][1:]
 
-    # Adicionar idade com base na média de pronomes de tratamento
-    # print(set([linha[3].split(', ')[1].split(' ')[0] for linha in dados_treino] + [linha[2].split(', ')[1].split(' ')[0] for linha in dados_teste]))
     pronomes = ['Lady.', 'Jonkheer.', 'Dona.', 'Mrs.', 'Capt.', 'Dr.', 'Sir.', 'Mlle.',
                 'Col.', 'Major.', 'Rev.', 'Don.', 'Mme.', 'Mr.', 'Miss.', 'Master.', 'Ms.']
-
 
     soma = {pronome: [0, 0] for pronome in pronomes}
     for linha in dados_teste:
@@ -41,15 +38,11 @@ def main():
 
     with open('train edited.csv', 'w') as f:
         f.write('PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked\n')
-
-        for linha in dados_treino:
-            f.write(','.join(linha[:3]) + f',"{linha[3]}",' + ','.join(linha[4:]) + '\n')
+        [f.write(','.join(linha[:3]) + f',"{linha[3]}",' + ','.join(linha[4:]) + '\n') for linha in dados_treino]
 
     with open('test edited.csv', 'w') as f:
         f.write('PassengerId,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked\n')
-
-        for linha in dados_teste:
-            f.write(','.join(linha[:2]) + f',"{linha[2]}",' + ','.join(linha[3:]) + '\n')
+        [f.write(','.join(linha[:2]) + f',"{linha[2]}",' + ','.join(linha[3:]) + '\n') for linha in dados_teste]
     
 if __name__ == '__main__':
     main()
