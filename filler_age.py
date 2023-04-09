@@ -1,5 +1,6 @@
 from csv import reader, writer
 
+
 def main():
     with open('train.csv', 'r') as f:
         dados_treino = [x for x in reader(f)][1:]
@@ -43,6 +44,7 @@ def main():
     with open('test edited.csv', 'w') as f:
         f.write('PassengerId,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked\n')
         [f.write(','.join(linha[:2]) + f',"{linha[2]}",' + ','.join(linha[3:]) + '\n') for linha in dados_teste]
-    
+
+
 if __name__ == '__main__':
     main()
