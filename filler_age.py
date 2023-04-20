@@ -1,5 +1,4 @@
-from csv import reader, writer
-
+from csv import reader
 
 def main():
     with open('train.csv', 'r') as f:
